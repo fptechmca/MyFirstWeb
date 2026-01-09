@@ -1,0 +1,42 @@
+
+
+.feature-card .icon {
+    font-size: 36px;
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* 3D TILT EFFECT */
+.tilt {
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+
+.tilt:hover {
+    transform: rotateX(8deg) rotateY(-8deg);
+}
+
+.tilt:active {
+    transform: rotateX(0deg) rotateY(0deg) scale(0.97);
+}
+
+/* Ripple effect */
+.feature-card::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: rgba(0, 120, 212, 0.25);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.feature-card:active::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+    transition: width 0.4s ease, height 0.4s ease, opacity 0.4s ease;
+}
